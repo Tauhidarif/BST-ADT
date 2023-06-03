@@ -10,6 +10,7 @@
 #include <fstream>
 #include <string>
 #include <cctype>
+#include <algorithm>
  
 using namespace std;
 
@@ -151,7 +152,7 @@ void searchManager(const BinarySearchTree<Park>& tree)
     {
         cout << "Enter a park code (or Q to stop searching):" << endl;
         getline(cin, targetCode);
-        targetCode[0] = toupper(targetCode[0]);
+        transform(targetCode.begin(), targetCode.end(), targetCode.begin(), ::toupper);
         if (targetCode != "Q")
         {
             Park target;
